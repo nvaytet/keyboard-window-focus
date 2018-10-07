@@ -46,21 +46,21 @@ done
 focusedWindowString=( $(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW) );
 focusedWindow=${focusedWindowString[1]};
 
+# Add extra zero to ensure compatibility between wmctrl and xprop
 if [ ${#focusedWindow} -lt ${#winId[0]} ]; then
 	focusedWindow=$(echo "${focusedWindow}" | sed 's/0x/0x0/g');
 fi
 
+# Now loop through list of windows, find currenty focused window
+# and switch to the window on the left or right depending on input
 for ((i=0;i<$n;i++)); do
-	echo "|${winId[i]}|${focusedWindow}|";
 	if [ "${winId[i]}" == "${focusedWindow}" ] ; then
-		echo "in here ${winId[i]} ${focusedWindow}"
 		if [ "${direction}" == "left" ] ; then
 			if [ $i -gt 0 ] ; then
 				wmctrl -i -a "${winId[i-1]}";
 			fi
 		elif [ "${direction}" == "right" ] ; then
 			if [ $i -lt $(($n - 1)) ] ; then
-				echo "${winId[i+1]}";
 				wmctrl -i -a "${winId[i+1]}";
 			fi
 		fi
