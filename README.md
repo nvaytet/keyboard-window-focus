@@ -2,6 +2,9 @@
 
 Focus desktop windows to the left or right using keyboard shortcuts
 
+# Requires:
+- wmctrl
+
 # How to:
 
 - Clone this repository: `git clone https://github.com/nvaytet/keyboard-window-focus.git`
