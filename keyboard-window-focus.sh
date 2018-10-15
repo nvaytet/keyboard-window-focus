@@ -58,10 +58,14 @@ for ((i=0;i<$n;i++)); do
 		if [ "${direction}" == "left" ] ; then
 			if [ $i -gt 0 ] ; then
 				wmctrl -i -a "${winId[i-1]}";
+      else
+        wmctrl -i -a "${winId[n-1]}";
 			fi
 		elif [ "${direction}" == "right" ] ; then
 			if [ $i -lt $(($n - 1)) ] ; then
 				wmctrl -i -a "${winId[i+1]}";
+      else
+        wmctrl -i -a "${winId[0]}";
 			fi
 		fi
 	fi
