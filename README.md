@@ -15,6 +15,10 @@ Focus desktop windows to the left or right using keyboard shortcuts
 This should now allow you to change the focus of your desktop windows using `Win+left` and `Win+right` (these are just examples, naturally you can use any key combination you want to activate the commands).
 This is useful if you are constantly switching back and forth between code editor and terminal and don't want to move the mouse every time.
 
+## Notes:
+
+You may have to set your window manager focus to `sloppy` (or similar) to allow for focus to move away from the mouse. If the focus remains strictly under the mouse, then this utility will have very little or no effect.
+
 ## To do:
 
 - Implement up/down focus switching.
